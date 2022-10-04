@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+}
+
+header{
+    font-size: 1.5em;
+    background-color: #AB6606;
+    /* padding-bottom: 50px; */
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    padding: 20px 10px;
+    width: 100%;  /* s'elargir dur toute la largeur de l'ecran*/
+    z-index: 1;  /******************/
+    display: flex; /*aligner les elmts*/
+    justify-content: space-evenly;
+    align-items: center;
+    transition: 0.5s;
+}
+
+#wood{
+    margin-left: 50px;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+#navbarContent{
+    /* position: relative;
+    float: right; */
+    margin-left: 700px;
+    
+}
+
+/* #navbarContent ul{
+    background-attachment: fixed;
+} */
+
+#navbarContent ul li{
+    margin-right: 50px;   
+}
+
+#navbarContent ul li a{
+    color: #fff;
+}
+
+header #navbarContent li a:hover{
+    border-bottom: 5px solid #fff;
+}
+
+#search{
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+#search:hover{
+    background-color: #77381d;
+    color: #fff;
+}
+
+.carousel-caption{
+    position: relative;
+    bottom: 50px;
+}
+
+
+#carouselcaption img{
+    position: relative;
+    background-size: cover;
+    background-position-y: 70%;
+    width: 100%;
+    max-height: 800px;
+    background-repeat: none;
+    /* margin-top: 200px; */
+    /* padding-top: 500px; */
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    position: absolute;
+    margin-top: 100px;
+    max-height: 1000px;
+    width: 100px;
+}
+
+.carousel-caption,
+.carousel-indicators{
+    padding-bottom: 200px;
+    max-width: 70%;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.livraison{
+    margin-top: 30px;
+}
+
+.livraison h3{
+    color: #AB6606;
+}
+
+.livraison p{
+    font-size: 1.5em;
+}
+
+.livraison .equipe{
+    font-family: Georgia, 'Times New Roman', Times, serif   ;
+}
+
+.engagement{
+    /* position: absolute; */
+    color: #fff;
+    text-align: center;
+    padding-top:200px ;
+    /* justify-content: flex-start; */
+}
+
+.engagement .titre{
+    padding-top: 0px;
+    border-bottom: 5px solid #fff;
+}
+
+
+
+
+
+
+
+
+
+.temoignage{
+    background-image: url(./images/bg2.jpg) ;
+    background-size: cover;
+    margin-top: 5px;
+}
+
+.temoignage .contenu{
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap ;  /************/
+    flex-direction: row;   /******/
+}
+
+
+
+.temoignage .contenu .box{
+    width: 300px;
+    margin: 5px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.temoignage .contenu .box .imbox{
+    width: 150px;
+    height: 200px;
+    border-radius: 50px;
+    position: relative;
+    margin-bottom: 10px;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.temoignage .contenu .box .imbox img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.temoignage .contenu .box .text{
+    color: #666;
+    text-align: center;
+    font-style: italic;
+}
+
+.temoignage .contenu .box .text h3{
+    color: #fb911f;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.blanc .titre-texte{
+    color: #AB6606;
+    text-align: center;
+}
+
+/* .blanc .titre-texte, */
+.blanc p{
+    color: #111;
+    text-align: center;
+}
+
+
+/* chauff?html*/
+#aboutton:hover{
+    background-color: #AB6606;
+    color: #fff;
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 124 <!-- <div class="container-fluid py-5" style="background-image: url('static/store/images/ban4.jpg'); height: 400px;">
+          <h1 class="display-5 fw-bold text-light mt-5 text-center">Admirez la qualité!!!</h1>
+          <p class="col-md-8 fs-4 text-light">Les meilleurs bois sont chez Woody</p>
+          <video width="100%" height="1000px" src="{% static 'store/images/assembly.mp4' %}"></video>
+          <button class="btn btn-primary btn-lg" type="button">Passez vos commandes</button>
+        </div> --> */

@@ -1,0 +1,40 @@
+{% extends 'store/base.html' %}
+
+{% block products %}
+<section>
+    <div class=" container text-center mt-5">
+    <h1>BOIS DE CHAUFFAGE</h1>
+    <hr>
+    <p>Nos stères de bûches de bois sont toutes sur palette. Les bûches sont prêtes à brûler 100% feuillu dur. Tous les bois sont certifiés FSC et les coupes sur parcelles de bois gérées durablement</p>
+    <div class="row g-0 mt-5">
+      {% for product in products %}
+        <div class = "col-md-6 col-lg-3 col-xl-3 p-2 card-fluid best shadow p-2 mt-5 bg-body rounded " id="product" style="width:300px; margin-right: 20px;">
+            <div>
+                <div class = "collection-img position-relative" id="img">
+                    <img src = "{{ product.thumbnail.url }}" class = "w-100" alt="{{ product.name }}">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{product.price}}$  
+                      </span>
+                    <!-- <span class = "position-absolute bg-primary text-white d-flex align-items-center justify-content-center">{{product.price}}$</span> -->
+                </div>
+                <div class = "text-center">
+                    <p class = "text-capitalize my-1 fw-bold">{{ product.name }}</p> 
+                    <!-- <span class = "fw-bold">$ {{ product.price }}</span>  -->
+                    <div>
+                        
+                      <!-- <a href=""><button class="btn btn-success mt-3">Acheter</button></a></span> -->
+                      <div>
+                        <a href = "{{ product.get_absolute_url }}" class = "btn btn-primary mt-3">Voir l'article</a>
+                        <a href=""><button class="btn btn-success mt-3">Acheter</button></a></span>
+                      </div>
+                        
+                    </div>
+                </div>
+            </div>           
+        </div>
+      {% endfor %}
+    </div>
+    </div>
+</section>
+{% endblock products %}
+<!-- <div><a href = "{{ product.get_absolute_url }}" class = "btn btn-primary mt-3">Voir l'article</a>                -->

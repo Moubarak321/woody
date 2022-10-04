@@ -1,0 +1,296 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles.css -->
+    <link rel="stylesheet" href="{% static 'store/style.css' %}">
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Wood Market</title>
+</head>
+<body>
+   {% block header %}
+    <header>
+        <nav class="navbar navbar-expand-lg nav">
+            <div class="container-fluid">
+              <a class="navbar-brand " id="wood" href="#">Wood</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Catégories
+                            </a>
+                            <ul class="dropdown-menu text-dark bg-none p-0" style="width:200px; height:0; background-color: none;"  aria-labelledby="navbarDropdown">
+                            <li><a class="btn text-bg-dark mt-1 mt-1 fs-5 fw-bold "  style="width:200px; background-color: #AB6606;" href="{% url 'index' %} ">Toutes les categories</a></li>
+                              {% for category in categories %}
+                            <li><a class="btn text-bg-dark mt-1 fs-5 fw-bold"  style="width:200px; background-color: #AB6606;" href="{% url 'categorie' category.slug  %}">{{ category.name }}</a></li>
+                            
+                            {% endfor %}
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">livraison</a>
+                        </li>
+
+                        <!-- <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li> -->
+                    </ul>
+
+                    <form class="d-flex boutton">
+                        <input class="form-control me-0 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn" id="search" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+          </nav>
+    </header>
+    {% endblock header %}
+
+    {% block carrouss %}
+    <div id="carouselcaption" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselcaption" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselcaption" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselcaption" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner ">
+          <div class="carousel-item active img-fluid">
+            <img src="{% static 'store/images/planches.jpg' %}" class="d-block " alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur modi quia doloremque, repellendus perspiciatis fuga repellat sint unde debitis odit voluptatem veritatis officiis recusandae quasi numquam ducimus quisquam fugit eligendi!</p>
+            </div>
+          </div>
+          <div class="carousel-item img-fluid">
+            <img src="{% static 'store/images/tas.jpg' %}" class="d-block" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta voluptas laudantium labore dolores velit eius autem? Reiciendis deserunt odio quis laudantium iusto, tenetur cum nesciunt animi aut excepturi assumenda cumque</p>
+            </div>
+          </div>
+          <div class="carousel-item img-fluid">
+            <img src="{% static 'store/images/work.jpg' %}" class="d-block" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur modi quia doloremque, repellendus perspiciatis fuga repellat sint unde debitis odit voluptatem veritatis officiis recusandae quasi numquam ducimus quisquam fugit eligendi!</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselcaption" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselcaption" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    {% endblock carrouss %}
+
+
+    {% block livre %}
+    <section class="livraison">
+        <div class="container text-center">
+            <h1>INFORMATION LIVRAISON</h1>
+            <hr>
+            <h3> À l'attention de notre aimable clientèle.</h3>
+            <p>Les étapes de livraison sont assez simples. Vous devez dans un premier temps passer commande sur notre site et payer par carte bleu via notre système sécurisé.</p>
+            <p>Suite à de nombreux incidents en livraison notamment du à des plaisantins et des personnes malhonnêtes nous n'acceptons plus les paiement en espèce à la livraison.</p>
+            <p>Une fois votre commande passée, elle sera directement transmise à notre atelier qui s'attellera immédiatement à la préparer. Une fois celle-ci prête nous vous contacterons par téléphone ou par mail afin de convenir avec vous d'une date et d'une heure de livraison.</p>
+            <p>Comptez de 7 à 10 jours entre la commande et la livraison.</p>
+            <p>Une fois que le livreur a déchargé les marchandises vous devrez signez un bon de commande pour prouver que la livraison en bonne et dû forme à bien eu lieu. Le pourboire est à l'appréciation de notre aimable clientèle.</p>
+            <p>Toute forme d'aggression physique ou verbale fera l'objet d'un dépôt de plainte.</p>
+            <p>Nous comptons sur votre compréhension.</p>
+            <p class="equipe">L'équipe Wood</p>
+            <button class="btn btn-outline-danger rounded-pill" type="submit">Passer une commande</button>
+
+        </div>
+    </section>
+    {% endblock livre %}
+
+    {% block btn %}
+    <center>
+    <div class="btn-group text-center p-5 fs-3 " role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check labelb" name="btnradio" id="btnradio1" autocomplete="off" checked>
+      <label class="btn btn-outline-primary btn-lg bout" for="btnradio1">Radio 1</label>
+    
+      <input type="radio" class="btn-check labelb" name="btnradio" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-primary btn-lg bout" for="btnradio2">Radio 2</label>
+    
+      <input type="radio" class="btn-check labelb" name="btnradio" id="btnradio3" autocomplete="off">
+      <label class="btn btn-outline-primary  btn-lg bout" for="btnradio3">Radio 3</label>
+    </div>
+  </center>
+  {% endblock btn %}
+
+    {% block products %}
+    {% endblock products %}
+
+    
+
+    {% block banniere %}
+    <section class="container mt-5">
+
+      <div class="p-0 mb-4 bg-light rounded-3 text-center">
+        <div class="container-fluid py-5" style="background-image: url('static/store/images/ban4.jpg'); height: 400px;">
+          <h1 class="display-5 fw-bold text-light mt-5 text-center">Admirez la qualité!!!</h1>
+          <p class="col-md-8 fs-4 text-light">Les meilleurs bois sont chez Woody</p>
+          <!-- <video width="100%" height="1000px" src="{% static 'store/images/assembly.mp4' %}"></video> -->
+          <button class="btn btn-primary btn-lg" type="button">Passez vos commandes</button>
+        </div>
+      </div>
+
+
+      <div class="row align-items-md-stretch m-5">
+        <div class="col-md-6" style="height:700px ;">
+          <div class="h-100 p-5 text-bg-dark rounded-3" style="background-image: url('static/store/images/ban9.jpg') ; background-repeat: no-repeat; background-size: cover;">
+            
+          </div>
+        </div>
+        <div class="col-md-6" >
+          <div class="h-100 p-5 border text-white rounded-3 fw-bold list-unstyled fs-3 engagement "  style="background-color:#AB6606 ;">
+            <h2 class="fs-1 titre">NOTRE ENGAGEMENT</h2>
+            <p class="mt-4 fs-2 texte">
+            <marquee behavior="" direction="up" scrolldelay="10">
+            <li>Du bois livrés à votre domicile en 3 jours ouvrables. </li>
+            <li>Des prix adpatés à la crise énergetique que nous traversons. </li>
+            <li>Du bois issus de fôret gérées durablement.</li>
+            <li>Une main d'oeuvre 100% française. </li>
+          </marquee>
+            <!-- <p>Les meilleurs bois sont chez woody</p> -->
+            </p>
+            <button class="btn btn-outline-light fw-bold fs-3" type="button">Découvrez nos produits</button>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endblock banniere %}
+
+    {% block temoignage %}
+  <section class="temoignage" id="temoignage">
+    <div class="titre blanc">
+        <h2 class="titre-texte">Que Disent nos <span>C</span>lients</h2>
+        <p class="yo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ipsa saepe repellat blanditiis</p>
+    </div>
+    <div class="contenu">
+        <div class="box">
+            <div class="imbox">
+                <img src="{% static 'store/images/homme1.jpg'%}" alt="">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam obcaecati voluptatum Lorem ipsum dolor id iste deleniti laborum tenetur.</p>
+                <h3>Bulldo</h3>
+            </div>
+        </div>
+    
+        <div class="box">
+            <div class="imbox">
+                <img src="{% static 'store/images/femmes1.jpg'%}" alt="">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam obcaecati voluptatum Lorem ipsum dolor id iste deleniti laborum tenetur.</p>
+                <h3>Bulldo</h3>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imbox">
+                <img src="{% static 'store/images/homme2.jpg'%}" alt="">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam obcaecati voluptatum Lorem ipsum dolor id iste deleniti laborum tenetur.</p>
+                <h3>Bulldo</h3>
+            </div>
+        </div>
+       
+    </div>
+</section>
+{% endblock temoignage %}
+
+<footer>
+  <div class="" >
+    <footer class="py-5" style="background-color: #AB6606;">
+      <div class="row m-5 text-light">
+        <div class="col-6 col-md-2 mb-3">
+          <h5 class="fs-1">Section</h5>
+          <ul class="nav flex-column text-light">
+            <li class="nav-item mb-2 text-light"><a href="#" class="nav-link p-0 text-light">Home</a></li>
+            <li class="nav-item mb-2 text-light"><a href="#" class="nav-link p-0 text-light">Features</a></li>
+            <li class="nav-item mb-2 text-light"><a href="#" class="nav-link p-0 text-light">Pricing</a></li>
+            <li class="nav-item mb-2 text-light"><a href="#" class="nav-link p-0 text-light">FAQs</a></li>
+            <li class="nav-item mb-2 text-light"><a href="#" class="nav-link p-0 text-light">About</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">About</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">About</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-md-5 offset-md-1 mb-3">
+          <form>
+            <h5>Subscribe to our newsletter</h5>
+            <p>Monthly digest of what's new and exciting from us.</p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p>&copy; 2022 Company, Inc. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+</footer>
+
+
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
+</body>
+</html>

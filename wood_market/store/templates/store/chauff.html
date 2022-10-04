@@ -1,0 +1,102 @@
+{% extends 'store/base.html' %}
+
+{% block carrouss %}
+{% endblock carrouss %}
+
+{% block livre %}
+{% endblock livre %}
+
+
+
+
+
+{% block btn %}
+    <!-- <center style="margin-top:100px;">
+    <div class="btn-group text-center p-5 fs-3 " role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check labelb" name="btnradio" id="btnradio1" autocomplete="off" checked>
+      <label class="btn btn-outline-primary btn-lg bout" for="btnradio1">Grannules de bois</label>
+    
+      <input type="radio" class="btn-check labelb" name="btnradio" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-primary btn-lg bout" for="btnradio2">Radio 2</label>
+    
+      <input type="radio" class="btn-check labelb" name="btnradio" id="btnradio3" autocomplete="off">
+      <label class="btn btn-outline-primary  btn-lg bout" for="btnradio3">Radio 3</label>
+    </div>
+  </center> -->
+
+  <center style="margin-top:100px;">
+
+  <div class="btn-group text-center p-5 fs-3 " role="group" aria-label="Basic radio toggle button group">
+  {% for category in categories %}
+    <!-- <input type="radio" class="btn-check labelb" name="btnradio" id="btnradio1" href="{% url 'categorie' category.slug  %}" autocomplete="off" checked>
+    <label class="btn btn-outline-primary btn-lg bout" for="btnradio1">{{ category.name }}</label> -->
+    <a aria-label="Basic radio toggle button group" type="button" href="{% url 'categorie' category.slug  %}" class="btn  btn-lg" id="aboutton" style="border-color:#AB6606;">{{ category.name }} </a>
+  {% endfor %}
+    
+  
+  
+  </center>
+
+
+  {% endblock btn %}
+
+
+
+
+
+
+{% block products %}
+<section style="margin-top:auto">
+  
+  <div class=" container text-center mt-5">
+      {% if categories %}
+    <h1>{{ product.categories }}</h1>
+      {% endif %}
+    <hr>
+    <p>Nos stères de bûches de bois sont toutes sur palette. Les bûches sont prêtes à brûler 100% feuillu dur. Tous les bois sont certifiés FSC et les coupes sur parcelles de bois gérées durablement</p>
+    <div class="row g-0 mt-5">
+      {% for product in produits %}
+        <div class = "col-md-6 col-lg-3 col-xl-3 p-2 card-fluid best shadow p-2 mt-5 bg-body rounded " id="product" style="width:300px; margin-right: 20px;">
+            <div>
+                <div class = "collection-img position-relative" id="img">
+                    <img src = "{{ product.thumbnail.url }}" class = "w-100" alt="{{ product.name }}">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{product.price}}$  
+                      </span>
+                   
+                </div>
+                <div class = "text-center">
+                    <p class = "text-capitalize my-1 fw-bold">{{ product.name }}</p> 
+                    
+                    <div>
+                        
+                     
+                      <div class="py-0">
+                        <a href = "{{ product.get_absolute_url }}" class = "btn btn-primary mt-3">Voir l'article</a>
+                        <a href=""><button class="btn btn-success mt-3">Acheter</button></a></span>
+                      </div>
+                        
+                    </div>
+                </div>
+            </div>           
+        </div>
+      {% endfor %}
+    </div>
+    </div>
+</section>
+
+
+
+
+
+
+{% endblock products %}
+
+{% block banniere %}
+{% endblock banniere %}
+
+{% block temoignage %}
+{% endblock temoignage %}
+
+
+
