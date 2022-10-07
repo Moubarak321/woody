@@ -1,1 +1,0 @@
-web: gunicorn wood_market.wsgi --log-file -
